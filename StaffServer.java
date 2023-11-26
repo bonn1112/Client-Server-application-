@@ -2,6 +2,7 @@ package YosukeAkutsuPA04;
 
 // add the class template 
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -241,6 +242,7 @@ public class StaffServer {
 	    	try {
 	    	// write the code to call a proper method to process the client request
 	    	ObjectInputStream inputFromClient = new ObjectInputStream(socket.getInputStream());
+		    ObjectInputFilters.enableObjectFilterIfUnprotected(inputFromClient);
 		    ObjectOutputStream outputToClient = new ObjectOutputStream(socket.getOutputStream());
 
 	    	
